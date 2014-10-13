@@ -4,6 +4,7 @@ function badgeCheck(){
 	badgeCheck_badgeOfTheAges();
 
 	// badgeCheck_characterFan(comic, user);
+	badgeCheck_marvelCharacter(marvel_character_id);
 }
 
 function badgeCheck_avidReader(){
@@ -83,7 +84,7 @@ function badgeCheck_characterFan(comic, user){
 	var this_user_id = user['id'];
 
 	// ~<*{{ get all of thisUser's userComics and favCharacters }}*>~
-	var this_user_comic_array = userComicCollection.where({user_id: this_user_id});
+	var this_user_comicCollection = userComicCollection.where({user_id: this_user_id});
 	var fav_character_array = favCharacter_collection.where({user_id: 1});
 
 	// set count
@@ -107,7 +108,29 @@ function badgeCheck_characterFan(comic, user){
 }
 
 
+//change id for each character
+function badgeCheck_marvelCharacter(marvel_character_id){
+	var this_user_id = 5;
+	// var this_marvel_char = characterCollection.findWhere({id: marvel_character_id});
 
+	//all the comics user 5 has read
+	var this_user_comicCollection = userComicCollection.where({user_id: this_user_id});
+	var comicsReadByUser = this_user_comicCollection.where({read: true});
+
+	//all the comics marvelcharacter with id of marvel_character_id exists
+	var this_char_comicCollection = charactersComic_collection.where({character_id: marvel_character_id});
+
+	//see if they intersect
+	_.each(this_user_comicCollection, function(userComic){
+		_.each(this_char_comicCollection, function(charComic){
+			if userComic['comic_id'] == charComic['comic_id'];
+			//create badge
+		});
+	});
+
+
+	});
+}
 
 
 
