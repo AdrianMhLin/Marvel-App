@@ -69,6 +69,10 @@ def get_character_comics(hero_name)
 	end
 end
 
+get '/' do 
+	File.open('./public/index.html')
+end
+
 before do 
 	content_type :json
 end
