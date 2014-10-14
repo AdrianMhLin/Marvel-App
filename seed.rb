@@ -1,7 +1,7 @@
 require 'httparty'
 require 'pry'
 require 'uri'
-require_relative './db/connection'
+require_relative './db/environments'
 require_relative './lib/models'
 
 Character.delete_all
