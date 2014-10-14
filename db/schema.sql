@@ -1,8 +1,6 @@
 CREATE DATABASE marvel_app;
 \c marvel_app;
 
-DROP TABLE fav_characters;
-
 CREATE TABLE users (
 id serial primary key,
 name varchar(255)
@@ -30,7 +28,8 @@ thumbnail text
 
 CREATE TABLE badges (
 id serial primary key,
-name varchar(255)
+name varchar(255),
+badge_src text 
 );
 
 CREATE TABLE fav_characters (
@@ -56,5 +55,5 @@ bought boolean
 CREATE TABLE users_badges (
 id serial primary key,
 user_id integer,
-badge_id integer 
+badge_id integer
 );
